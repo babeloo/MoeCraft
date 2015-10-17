@@ -1,0 +1,216 @@
+{
+    ".*": {
+		"Nuclear Reactor": {
+			"heat":"function p(v){var r = (v/100);return '堆温: '+r.toFixed(0)+'%'};",
+			"output":"输出: %.0f EU"
+		},
+		"Luminator": {
+			"energy":"电量: %.0f EU"
+		},
+		"Tesla Coil": {
+			"energy":"电量: %.0f EU"
+		},
+		"Crop-Matron": {
+			"energy":"电量: %.0f EU"
+		},
+		"Thermal Centrifuge": {
+			"energy":"电量: %.0f EU",
+			"heat":"function p(v){var r = (v/100);return '温度: '+r.toFixed(0)+'%'};"
+		},
+		"Metal Former": {
+			"energy":"电量: %.0f EU"
+		},
+		"Ore Washing Plant": {
+			"energy":"电量: %.0f EU"
+		},
+		"Scanner": {
+			"energy":"电量: %.0f EU"
+		},
+		"Replicator": {
+			"energy":"电量: %.0f EU",
+			"fluidTank>>>Amount":"UU储存 %.0f mB"
+		},
+		"Solid Canner Maschine": {
+			"energy":"电量: %.0f EU"
+		},
+		"Fluid Bottler Maschine": {
+			"energy":"电量: %.0f EU",
+			"fluidTank>>>Amount":"液体体积: %.0f mB"
+		},
+		"Advanced Miner": {
+			"energy":"电量: %.0f EU"
+		},
+		"Liquid Heat Exchanger": {
+			"HeatBuffer":"热量缓存: %.0f HU",
+			"inputTank>>>Amount":"输入液体: %.0f mB",
+			"outputTank>>>Amount":"输出液体: %.0f mB"
+		},
+		"Fermenter": {
+			"HeatBuffer":"热量缓存: %.0f HU",
+			"inputTank>>>Amount":"输入液体: %.0f mB",
+			"outputTank>>>Amount":"输出液体: %.0f mB"
+		},
+		"Fluid Regulator": {
+			"energy":"电量: %.0f EU",
+			"outputmb":"输出: %.0f mB/s",
+			"fluidTank>>>Amount":"液体体积: %.0f mB"
+		},
+		"Condenser": {
+			"energy":"电量: %.0f EU",
+			"inputTank>>>Amount":"输入液体: %.0f mB",
+			"outputTank>>>Amount":"输出液体: %.0f mB"
+		},
+		"Steam Generator": {
+			"calcification":"function p(v){var r = (v/1000);return '钙化: '+r.toFixed(2)+'%'};",
+			"pressurevalve":"压力: %.0f Bar",
+			"inputmb":"输出: %.0f mB/t",
+			"systemheat":"温度: %.1f"
+		},
+		"Blast Furnace": {
+			"heat":"温度: "
+		},
+		"Block Cutter": {
+			"energy":"电量: %.0f EU"
+		},
+		"Solar Destiller": {
+			"inputTank>>>Amount":"水体积: %.0f mB",
+			"outputTank>>>Amount":"蒸馏水体积: %.0f mB"
+		},
+		"Fluid Distributor": {
+			"fluidTank>>>Amount":"液体体积: %.0f mB"
+		},
+		"Sorting Machine": {
+			"energy":"电量: %.0f EU"
+		},
+		"Crop Havester": {
+			"energy":"电量: %.0f EU"
+		},
+		"Chargepad BatBox": {
+			"energy":"电量: %.0f EU"
+		},
+		"Chargepad CESU": {
+			"energy":"电量: %.0f EU"
+		},
+		"Chargepad MFE": {
+			"energy":"电量: %.0f EU"
+		},
+		"Chargepad MFSU": {
+			"energy":"电量: %.0f EU"
+		},
+		"Steam Kinetic Generator": {
+			"InvSlots>>>Turbineslot>>>Contents>>>0>>>Damage":"function p(v){var r = (100-v/10000);return '损耗: '+r.toFixed(0)+'%'};",
+			"distilledwaterTank>>>Amount":"蒸馏水体积: %.0f mB"
+		},
+		"Solid Heat Generator": {
+			"HeatBuffer":"热量缓存: %.0f HU"
+		},
+		"Fluid Heat Generator": {
+			"HeatBuffer":"热量缓存: %.0f HU",
+			"fluidTank>>>Amount":"剩余燃料: %.0f mB"
+		},
+		"Radioisotope Thermo Heat Generator": {
+			"HeatBuffer":"热量缓存: %.0f HU"
+		},
+		"Electric Heat Generator": {
+			"HeatBuffer":"热量缓存: %.0f HU",
+			"energy":"电量: %.0f EU"
+		},
+		"Electric Furnace": {
+			"energy":"电量: %.0f EU"
+		},
+		"Macerator": {
+			"energy":"电量: %.0f EU"
+		},
+		"Extractor": {
+			"energy":"电量: %.0f EU"
+		},
+		"Compressor": {
+			"energy":"电量: %.0f EU"
+		},
+		"Canning Machine": {
+			"energy":"电量: %.0f EU",
+			"inputTank>>>Amount":"输入液体: %.0f mB",
+			"outputTank>>>Amount":"输出液体: %.0f mB"
+		},
+		"Miner": {
+			"energy":"电量: %.0f EU"
+		},
+		"Pump": {
+			"energy":"电量: %.0f EU",
+			"fluidTank>>>Amount":"液体体积: %.0f mB"
+		},
+		"Magnetizer": {
+			"energy":"电量: %.0f EU"
+		},
+		"Electrolyzer": {
+			"energy":"电量: %.0f EU"
+		},
+		"Recycler": {
+			"energy":"电量: %.0f EU"
+		},
+		"Induction Furnace": {
+			"energy":"电量: %.0f EU",
+			"heat":"function p(v){var r = (v/100);return '温度: '+r.toFixed(0)+'%'};"
+		},
+		"Mass Fabricator": {
+			"energy":"电量: %.0f EU",
+			"fluidTank>>>Amount":"UU储存: %.0f mB"
+		},
+		"Terraformer": {
+			"energy":"电量: %.0f EU"
+		},
+		"LV-Transformer": {
+			"energy":"电量: %.0f EU"
+		},
+		"MV-Transformer": {
+			"energy":"电量: %.0f EU"
+		},
+		"HV-Transformer": {
+			"energy":"电量: %.0f EU"
+		},
+		"EV-Transformer": {
+			"energy":"电量: %.0f EU"
+		},
+		"CESU": {
+			"energy":"电量: %.0f EU"
+		},
+		"MFE": {
+			"energy":"电量: %.0f EU"
+		},
+		"MFSU": {
+			"energy":"电量: %.0f EU"
+		},
+		"BatBox": {
+			"energy":"电量: %.0f EU"
+		},
+		"TECrop": {
+			"size":"生长状态:",
+			"growthPoints":"生长点数:"
+		},
+		"Energy-O-Mat": {
+			"euBuffer":"电量: %.0f EU",
+			"euOffer":"提供: %.0f EU",
+			"ownerGameProfile>>>Name":"所有者:"
+		},
+		"Trade-O-Mat": {
+			"ownerGameProfile>>>Name":"所有者:"
+		},
+		"Wind Kinetic Generator": {
+			"InvSlots>>>rotorslot>>>Contents>>>0>>>Damage":"function p(v){var r = (100-v/10800);return '损耗: '+r.toFixed(0)+'%'};"
+		},
+		"Fermenter": {
+			"HeatBuffer":"热量缓存: %.0f HU",
+			"inputTank>>>Amount":"生物质体积: %.0f mB",
+			"outputTank>>>Amount":"沼气体积: %.0f mB"
+		},
+		"Lathe": {
+			"kUBuffer":"动能缓存: %.0f KU"
+		},
+		"Electric Kinetic Generator": {
+			"energy":"电量: %.0f EU"
+		},
+		"Water Kinetic Generator": {
+			"InvSlots>>>rotorslot>>>Contents>>>0>>>Damage":"function p(v){var r = (100-v/10800);return '损耗: '+r.toFixed(0)+'%'};"
+		}
+	}
+}

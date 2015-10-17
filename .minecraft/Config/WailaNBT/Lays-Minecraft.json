@@ -1,0 +1,281 @@
+{
+	".*" : {
+		".*(Lays-Minecraft)*" : {
+			"Age" : "function p(v){ if(v>=0){return '交配冷却时间:\u00A7f' + Math.floor(v/20) +' 秒' }else{return '成长剩余时间:\u00A7f' + Math.ceil(v/20)*(-1) +' 秒' }}"
+		},
+		"Skull" : {
+			"ExtraType" : "这是%s的头颅!"
+		},"Cauldron":{
+		"BrewTime":"",
+			"Items>>>0>>>Damage":"function p(v){
+	//储存所有药水的数据
+	var potionArray=new function (){
+		//药水的名称
+		this.potionName=['','回复','迅捷','抗火','剧毒','治疗','夜视','清澈(不可能出现)','虚弱','力量','缓速','跳耀','伤害','水下呼吸','隐身','稀薄(不可能出现)'];
+		this.potionNarmalExtName=['水瓶','粗制的','混浊的','(延长版)平凡的','平凡的','<错误>'];
+		//药水文字的颜色默认空字符串
+		this.potionColor=['','','','','','','','','','','','','','','',''];
+		//药水的种类，0为预设或是时效性药水，1为时效性药水(无药水等级)
+		this.potionAttribute=[0,0,0,1,0,0,1,0,1,0,1,0,0,1,1,0];
+		//药效的时长，若为药效性药水(立即治疗)则值为0，单位为秒
+		this.potionEffectTime=[0,45,180,180,45,0,180,0,90,180,90,180,0,180,180,0];
+		//药水种类名称
+		this.potionType=['药水','飞溅药水'];
+		//药水等级名称还有延长版名称
+		this.potionAttributeName = ['I','II','(延长版)'];
+	}
+	//协助计算药水值的对象
+	function potionHelper( potionArray ){
+		var potionData=potionArray;
+		//取得药水效果的id值
+		this.getEffectID=function(value){
+			return value&15;
+		}
+		//得取得药水的效果名称
+		this.getEffectName = function (value){
+			return potionData.potionName[this.getEffectID(value)];
+		}
+		//是否为延长版药水是的话为1，反之则0
+		this.isExtendPotion = function (value) {
+			return (value&64)==64?1:0;
+		}
+		//取得效果时长，若为即刻生效药水则为0
+		this.getEffectTime = function (value){
+			return potionData.potionEffectTime[this.getEffectID(value)];
+		}
+		//取得药水等级,若为时效性药水则为0(0为1级，1为2级
+		this.getPotionLevel = function (value){
+			return ((value&32)==32?1:0)&(~(potionData.potionAttribute[this.getEffectID(value)]));
+		}
+		//取得药水种类，一般药水为0，喷溅药水为1
+		this.getType = function (value){
+			return (value&16384)==16384?1:0;
+		}
+		//取得药水文字色码,回传字符串
+		this.getColor = function (value){
+			return potionData.potionColor[this.getEffectID(value)];
+		}
+		//取得药水正确的名称
+		this.getPotionName = function (value){
+			var typeName = potionData.potionType[this.getType(value)];
+			var effectName = this.getEffectName(value);
+			if(effectName == ''){
+				switch(value&8304){
+					case 0:
+						return potionData.potionNarmalExtName[0];
+						break;
+					case 16:
+						return potionData.potionNarmalExtName[1]+typeName;
+						break;
+					case 32:
+						return potionData.potionNarmalExtName[2]+typeName;
+						break;
+					case 64:
+						return potionData.potionNarmalExtName[3]+typeName;
+						break;
+					case 8192:
+						return potionData.potionNarmalExtName[4]+typeName;
+						break;
+					default :
+						return potionData.potionNarmalExtName[5]+typeName;
+						
+				}
+			}else{
+				var effectTime = this.getEffectTime(value)*(this.isExtendPotion(value)?8:3)/3;
+				var effectTime = effectTime*(this.getType(value)?3:4)/4;
+				var effectTime = effectTime*(this.getPotionLevel(value)?1:2)/2;
+				var effectTimeString =  Math.floor(effectTime/60) + ':' + (effectTime%60>9?'':'0')+Math.floor(effectTime%60);
+				var effectLevel = this.getPotionLevel(value);
+				var color = this.getColor(value);
+				return color+(this.isExtendPotion(value)?potionData.potionAttributeName[2]:'')+effectName+potionData.potionAttributeName[effectLevel]+typeName+'('+effectTimeString+')';
+			}
+		}
+	}
+	
+	var ph = new potionHelper(potionArray);
+	return ph.getPotionName(v);
+}",
+"Items>>>1>>>Damage":"function p(v){
+	//储存所有药水的数据
+	var potionArray=new function (){
+		//药水的名称
+		this.potionName=['','回复','迅捷','抗火','剧毒','治疗','夜视','清澈(不可能出现)','虚弱','力量','缓速','跳耀','伤害','水下呼吸','隐身','稀薄(不可能出现)'];
+		this.potionNarmalExtName=['水瓶','粗制的','混浊的','(延长版)平凡的','平凡的','<错误>'];
+		//药水文字的颜色默认空字符串
+		this.potionColor=['','','','','','','','','','','','','','','',''];
+		//药水的种类，0为预设或是时效性药水，1为时效性药水(无药水等级)
+		this.potionAttribute=[0,0,0,1,0,0,1,0,1,0,1,0,0,1,1,0];
+		//药效的时长，若为药效性药水(立即治疗)则值为0，单位为秒
+		this.potionEffectTime=[0,45,180,180,45,0,180,0,90,180,90,180,0,180,180,0];
+		//药水种类名称
+		this.potionType=['药水','飞溅药水'];
+		//药水等级名称还有延长版名称
+		this.potionAttributeName = ['I','II','(延长版)'];
+	}
+	//协助计算药水值的对象
+	function potionHelper( potionArray ){
+		var potionData=potionArray;
+		//取得药水效果的id值
+		this.getEffectID=function(value){
+			return value&15;
+		}
+		//得取得药水的效果名称
+		this.getEffectName = function (value){
+			return potionData.potionName[this.getEffectID(value)];
+		}
+		//是否为延长版药水是的话为1，反之则0
+		this.isExtendPotion = function (value) {
+			return (value&64)==64?1:0;
+		}
+		//取得效果时长，若为即刻生效药水则为0
+		this.getEffectTime = function (value){
+			return potionData.potionEffectTime[this.getEffectID(value)];
+		}
+		//取得药水等级,若为时效性药水则为0(0为1级，1为2级
+		this.getPotionLevel = function (value){
+			return ((value&32)==32?1:0)&(~(potionData.potionAttribute[this.getEffectID(value)]));
+		}
+		//取得药水种类，一般药水为0，喷溅药水为1
+		this.getType = function (value){
+			return (value&16384)==16384?1:0;
+		}
+		//取得药水文字色码,回传字符串
+		this.getColor = function (value){
+			return potionData.potionColor[this.getEffectID(value)];
+		}
+		//取得药水正确的名称
+		this.getPotionName = function (value){
+			var typeName = potionData.potionType[this.getType(value)];
+			var effectName = this.getEffectName(value);
+			if(effectName == ''){
+				switch(value&8304){
+					case 0:
+						return potionData.potionNarmalExtName[0];
+						break;
+					case 16:
+						return potionData.potionNarmalExtName[1]+typeName;
+						break;
+					case 32:
+						return potionData.potionNarmalExtName[2]+typeName;
+						break;
+					case 64:
+						return potionData.potionNarmalExtName[3]+typeName;
+						break;
+					case 8192:
+						return potionData.potionNarmalExtName[4]+typeName;
+						break;
+					default :
+						return potionData.potionNarmalExtName[5]+typeName;
+						
+				}
+			}else{
+				var effectTime = this.getEffectTime(value)*(this.isExtendPotion(value)?8:3)/3;
+				var effectTime = effectTime*(this.getType(value)?3:4)/4;
+				var effectTime = effectTime*(this.getPotionLevel(value)?1:2)/2;
+				var effectTimeString =  Math.floor(effectTime/60) + ':' + (effectTime%60>9?'':'0')+Math.floor(effectTime%60);
+				var effectLevel = this.getPotionLevel(value);
+				var color = this.getColor(value);
+				return color+(this.isExtendPotion(value)?potionData.potionAttributeName[2]:'')+effectName+potionData.potionAttributeName[effectLevel]+typeName+'('+effectTimeString+')';
+			}
+		}
+	}
+	
+	var ph = new potionHelper(potionArray);
+	return ph.getPotionName(v);
+}",
+"Items>>>2>>>Damage":"function p(v){
+	//储存所有药水的数据
+	var potionArray=new function (){
+		//药水的名称
+		this.potionName=['','回复','迅捷','抗火','剧毒','治疗','夜视','清澈(不可能出现)','虚弱','力量','缓速','跳耀','伤害','水下呼吸','隐身','稀薄(不可能出现)'];
+		this.potionNarmalExtName=['水瓶','粗制的','混浊的','(延长版)平凡的','平凡的','<错误>'];
+		//药水文字的颜色代码,默认空字符串
+		this.potionColor=['','','','','','','','','','','','','','','',''];
+		//药水的种类，0为预设或是时效性药水，1为时效性药水(无药水等级)
+		this.potionAttribute=[0,0,0,1,0,0,1,0,1,0,1,0,0,1,1,0];
+		//药效的时长，若为药效性药水(立即治疗)则值为0，单位为秒
+		this.potionEffectTime=[0,45,180,180,45,0,180,0,90,180,90,180,0,180,180,0];
+		//药水种类名称
+		this.potionType=['药水','飞溅药水'];
+		//药水等级名称还有延长版名称
+		this.potionAttributeName = ['I','II','(延长版)'];
+	}
+	//协助计算药水值的对象
+	function potionHelper( potionArray ){
+		var potionData=potionArray;
+		//取得药水效果的id值
+		this.getEffectID=function(value){
+			return value&15;
+		}
+		//得取得药水的效果名称
+		this.getEffectName = function (value){
+			return potionData.potionName[this.getEffectID(value)];
+		}
+		//是否为延长版药水是的话为1，反之则0
+		this.isExtendPotion = function (value) {
+			return (value&64)==64?1:0;
+		}
+		//取得效果时长，若为即刻生效药水则为0
+		this.getEffectTime = function (value){
+			return potionData.potionEffectTime[this.getEffectID(value)];
+		}
+		//取得药水等级,若为时效性药水则为0(0为1级，1为2级
+		this.getPotionLevel = function (value){
+			return ((value&32)==32?1:0)&(~(potionData.potionAttribute[this.getEffectID(value)]));
+		}
+		//取得药水种类，一般药水为0，喷溅药水为1
+		this.getType = function (value){
+			return (value&16384)==16384?1:0;
+		}
+		//取得药水文字色码,回传字符串
+		this.getColor = function (value){
+			return potionData.potionColor[this.getEffectID(value)];
+		}
+		//取得药水正确的名称
+		this.getPotionName = function (value){
+			var typeName = potionData.potionType[this.getType(value)];
+			var effectName = this.getEffectName(value);
+			if(effectName == ''){
+				switch(value&8304){
+					case 0:
+						return potionData.potionNarmalExtName[0];
+						break;
+					case 16:
+						return potionData.potionNarmalExtName[1]+typeName;
+						break;
+					case 32:
+						return potionData.potionNarmalExtName[2]+typeName;
+						break;
+					case 64:
+						return potionData.potionNarmalExtName[3]+typeName;
+						break;
+					case 8192:
+						return potionData.potionNarmalExtName[4]+typeName;
+						break;
+					default :
+						return potionData.potionNarmalExtName[5]+typeName;
+						
+				}
+			}else{
+				var effectTime = this.getEffectTime(value)*(this.isExtendPotion(value)?8:3)/3;
+				var effectTime = effectTime*(this.getType(value)?3:4)/4;
+				var effectTime = effectTime*(this.getPotionLevel(value)?1:2)/2;
+				var effectTimeString =  Math.floor(effectTime/60) + ':' + (effectTime%60>9?'':'0')+Math.floor(effectTime%60);
+				var effectLevel = this.getPotionLevel(value);
+				var color = this.getColor(value);
+				return color+(this.isExtendPotion(value)?potionData.potionAttributeName[2]:'')+effectName+potionData.potionAttributeName[effectLevel]+typeName+'('+effectTimeString+')';
+			}
+		}
+	}
+	
+	var ph = new potionHelper(potionArray);
+	return ph.getPotionName(v);
+}"
+		}		
+	},
+	"tooltip" : {
+		"minecraft:skull" : {
+			"SkullOwner" : "拥有者"
+		}
+	}
+}

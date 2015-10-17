@@ -1,0 +1,66 @@
+{
+	".*": {
+        	"net.minecraft.src.buildcraft.energy.TileEngineCreative": {
+                  	"heat":"§c温度: %.1f",
+            		"energy":"储存能量: %.0f RF"
+        },
+		"net.minecraft.src.buildcraft.factory.TileLaser": {
+            		"battery>>>energy": "储存能量: %.0f RF"
+        },
+		"net.minecraft.src.buildcraft.factory.TileAssemblyTable": {
+            		"energy": "储存能量: %.0f RF"
+	},
+		"net.minecraft.src.buildcraft.factory.TileAssemblyAdvancedWorkbench": {
+            		"energy": "储存能量: %.0f RF"
+	},
+		"net.minecraft.src.buildcraft.factory.TileIntegrationTable": {
+            		"energy": "储存能量: %.0f RF"
+	},
+		"net.minecraft.src.buildcraft.energy.TileEngineWood": {
+                  	"heat":"§c温度: %.1f",
+            		"energy":"储存能量: %.0f RF"
+	},
+		"net.minecraft.src.buildcraft.energy.TileEngineStone": {
+                  	"heat":"§c温度: %.1f",
+            		"energy":"储存能量: %.0f RF",
+			"Items>>>0>>>Count": "function p(v){return '燃料数量:  '+v}"
+	},
+	"net.minecraft.src.buildcraft.energy.TileEngineIron": {
+                  	"heat":"§c温度: %.1f",
+            		"energy":"储存能量: %.0f RF",
+			"tankCoolant>>>Amount":"水体积: %.0f mB",
+			"tankFuel>>>Amount":"燃料体积: %.0f mB"
+	},
+	"net.minecraft.src.buildcraft.factory.TileFloodGate":{
+			"tank>>>Amount":"液体缓存: %.0f mB"
+	},
+	"net.minecraft.src.buildcraft.factory.TileBuilder": {
+            		"battery>>>energy": "储存能量: %.0f RF"
+	},
+	"net.minecraft.src.buildcraft.factory.TilePump": {
+			"battery>>>energy": "储存能量: %.0f RF",
+			"tank>>>Amount":"液体缓存: %.0f mB"
+	},
+	"net.minecraft.src.buildcraft.factory.TileChargingTable": {
+            		"energy": "储存能量: %.0f RF"
+	},
+	"net.minecraft.src.buildcraft.factory.TileProgrammingTable": {
+            		"energy": "储存能量: %.0f RF"
+	},
+	"buildcraft.TileStampingTable": {
+            		"energy": "储存能量: %.0f RF"
+	},
+	"net.minecraft.src.buildcraft.factory.Refinery": {
+            		"battery>>>energy": "储存能量: %.0f RF"
+	},
+	"MiningWell": {
+            		"battery>>>energy": "储存能量: %.0f RF"
+	},
+	"net.minecraft.src.buildcraft.factory.TileHopper": {
+	       		"battery>>>energy": "储存能量: %.0f RF"
+	},
+	"AutoWorkbench": {
+	       		"battery>>>energy": "储存能量: %.0f RF"
+	}
+    }
+}
